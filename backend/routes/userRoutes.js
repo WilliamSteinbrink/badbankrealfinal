@@ -3,10 +3,11 @@ const router = express.Router()
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const User = require('../models/userModel')
+const { protect } = require('../middleware/authMiddleware')
 const { registerUser, loginUser, userHomePage, allUsers } = require('../controllers/userControllers')
 
 // Single user homepage
-router.get('/', userHomePage)
+router.get('/', protect, userHomePage)
 
 // Get all user names
 router.get('/all', allUsers)

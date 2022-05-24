@@ -83,6 +83,7 @@ const loginUser = async(req, res) => {
     // Find user by email
     const user = await User.findOne({email})
 
+    // Validate password and login
     if(user && (await bcrypt.compare(password, user.password))) {
       res.json({
         _id: user.id,
