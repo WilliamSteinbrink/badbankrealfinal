@@ -7,7 +7,6 @@ import WithdrawForm from '../components/WithdrawForm'
 function Dashboard() {
   const navigate = useNavigate()
   const {user} = useSelector((state) => {
-    console.log(state.auth)
     return state.auth})
 
   useEffect(() => {
@@ -22,7 +21,7 @@ function Dashboard() {
       <>
         <section className="heading">
           <h1>Welcome {user && user.name}</h1>
-          <p>Your current balance: {user && user.balance}</p>
+          <p>Your current balance: ${user && user.balance}</p>
         </section>
         <DepositForm />
         <WithdrawForm/>

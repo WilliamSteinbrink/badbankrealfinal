@@ -10,7 +10,7 @@ const { allTransactions, transfer, deposit, withdraw } = require('../controllers
 router.get('/', protect, allTransactions)
 
 // Deposit transaction
-router.post('/deposit', protect, deposit)
+router.post('/deposit', deposit)
 
 // Withdraw transaction
 router.post('/withdraw', protect, withdraw)

@@ -21,11 +21,14 @@ function Header() {
       </div>
       <ul>
       {user ? (
-        <li>
-          <button className="btn" onClick={onLogout}>
-            <FaSignOutAlt /> Logout
-          </button>
-        </li>
+        <>
+          <h6>Currently logged in as: {user.name}</h6>
+          <li>
+            <button className="btn" onClick={onLogout}>
+              <FaSignOutAlt /> Logout
+            </button>
+          </li>
+        </>
       ) : (
         <>
         <li>

@@ -57,12 +57,12 @@ const transfer = async(req, res) => {
 
 // Depost funds
 const deposit = async(req, res) => {
-  const {user, amount} = req.body
+  const {_id, amount} = req.body
 
   try {
-    const depositUser = await User.findById(user)
+    const depositUser = await User.findById(_id)
     const newBalance = Number(depositUser.balance) + Number(amount)
-    User.updateOne({ _id: user }, {balance: newBalance}, err => {
+    User.updateOne({ _id: _id }, {balance: newBalance}, err => {
       if (err) {
         console.error(err)
         res.status(400).send('Server Error')

@@ -14,7 +14,7 @@ const generateToken = (id) => {
 // Single user homepage/landing page
 const userHomePage = async(req, res) => {
   try {
-    res.status(200).json({message: 'user Homepage'})
+    res.status(200).json({message: 'user homepage'})
   } catch (error) {
     console.error(error)
   }
@@ -89,6 +89,8 @@ const loginUser = async(req, res) => {
         _id: user.id,
         name: user.name,
         email: user.email,
+        // added balance line
+        balance: user.balance,
         token: generateToken(user._id),
       })
     } else {
