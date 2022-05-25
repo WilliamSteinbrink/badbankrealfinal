@@ -3,17 +3,22 @@ import {useNavigate} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import DepositForm from '../components/DepositForm'
 import WithdrawForm from '../components/WithdrawForm'
+import Spinner from '../components/Spinner'
 
 function Dashboard() {
   const navigate = useNavigate()
-  const {user} = useSelector((state) => {
+  const {user, isLoading, isError, isSuccess, message, balance} = useSelector((state) => {
     return state.auth})
 
   useEffect(() => {
     if(!user) {
       navigate('/login')
     }
-  }, [user, navigate])
+  }, [user, navigate, isError, isSuccess, message, balance])
+
+  if (isLoading) {
+    return <Spinner />
+  }
 
   return (
     <>
