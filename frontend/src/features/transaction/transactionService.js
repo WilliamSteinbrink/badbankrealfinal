@@ -21,8 +21,23 @@ const makeDeposit = async (amount) => {
   return response.data
 }
 
+// Make withdraw
+const makeWithdraw = async (amount) => {
+  const userId = user._id
+  console.log(userId)
+  const config = {
+    _id: userId,
+    amount: amount,
+  }
+
+  const response = await axios.post(API_URL + 'withdraw', config)
+
+  return response.data
+}
+
 const transactionService = {
   makeDeposit,
+  makeWithdraw,
 }
 
 export default transactionService

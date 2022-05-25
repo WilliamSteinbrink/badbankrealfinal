@@ -25,9 +25,15 @@ export const makeDeposit = createAsyncThunk('transaction/deposit', async (amount
 })
 
 // Withdraw
-const makeWithdraw = () => {
-
-}
+export const makeWithdraw = createAsyncThunk('transaction/withdraw', async (amount, thunkAPI) => {
+  try {
+    // const token = thunkAPI.getState().auth.user.token
+    return await transactionService.makeWithdraw(amount)
+  } catch (error) {
+    const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+    return thunkAPI.rejectWithValue(message)
+  }
+})
 
 export const transactionSlice = createSlice({
   name: 'transaction',

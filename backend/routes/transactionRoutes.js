@@ -13,9 +13,9 @@ router.get('/', protect, allTransactions)
 router.post('/deposit', deposit)
 
 // Withdraw transaction
-router.post('/withdraw', protect, withdraw)
+router.post('/withdraw', withdraw)
 
 // Transfer transaction
-router.post('/transfer', protect, transfer)
+router.post('/transfer', transfer)
 
 module.exports = router
