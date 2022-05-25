@@ -66,7 +66,7 @@ function Login() {
     </section>
 
     <section className="form">
-      <h3>Log in to your account</h3>
+      <h3>Login to your account</h3>
         <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
@@ -95,10 +95,10 @@ function Login() {
           </div>
           <section className="body">
             <h3>
-              Don't have an account yet?
+              Don't have an account with us yet?
             </h3>
               <Link to="/register">
-                <FaUser /> Create Account
+                <FaUser /> Sign up now!
               </Link>
         </section>
       </form>

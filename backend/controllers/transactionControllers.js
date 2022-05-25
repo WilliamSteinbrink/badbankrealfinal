@@ -70,12 +70,12 @@ const deposit = async(req, res) => {
         console.log('Deposit complete')
       }
     })
-    const transaction = new Transaction({
+    const deposit = new Deposit({
       user: depositUser,
       amount,
     })
-    transaction.save()
-    res.json(transaction)
+    deposit.save()
+    res.json(deposit)
 
   } catch (error) {
     console.error(error)
@@ -97,12 +97,12 @@ const withdraw = async(req, res) => {
         console.log('Withdraw complete')
       }
     })
-    const transaction = new Transaction({
+    const withdrawal = new Withdraw({
       user: withdrawUser,
       amount,
     })
-    transaction.save()
-    res.json(transaction)
+    withdrawal.save()
+    res.json(withdrawal)
 
   } catch (error) {
     console.error(error)
